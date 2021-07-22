@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <base target="_top">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
+
+    <?!= include("page-css"); ?>
+    <style>
+      .form-row {
+        margin-bottom:15px;
+      }
+    </style>
+  </head>
+  <body>
+   <div class="container">
+    <h1>DHIS2 to Google Sheets Web App Addon</h1>
+   
+    <div class="row">
+    <form class="col s12">
+      <div class="row">
+        <div class="input-field col s6">
+          <i class="small material-icons prefix">security</i>
+          <input disabled value="7X8WQBHD3L" id="token" type="text" class="validate" data-length="10">
+          <label for="token">Token</label>
+        </div>
+        <div class="input-field col s6">
+          <i class="small material-icons prefix">grid_on</i>
+          <input placeholder="Enter Sheet ID here" value="1NfXZOurK4XUL0Q7xDck7V1kakonQckrNDo8XLYMOE0c" id="ssId" type="text" data-length="44">
+          <label for="ssId">Google Sheet ID</label>
+        </div>
+      </div>
+      <div class="row">
+        <div class="input-field col s6">
+          <i class="small material-icons prefix">account_box</i>
+          <input value="Jafar" id="dhis_username" type="text" class="validate">
+          <label for="dhis_username">DHIS Username</label>
+        </div>
+        <div class="input-field col s6">
+          <i class="small material-icons prefix">security</i>
+          <input value = "Jafar123" id="dhis_password" type="password" class="validate">
+          <label for="dhis_password">DHIS Password</label>
+        </div>
+      </div>
+      <div class="row">
+        <div class="input-field col s6">
+          <i class="small material-icons prefix">insert_link</i>
+          <input id="dhis_url" value = 'https://dhis2nigeria.org.ng/dhis' type="text" class="validate">
+          <label for="dhis_url">DHIS URL</label>
+        </div>
+        <div class="input-field col s6">
+          <i class="small material-icons prefix">grid_off</i>
+          <input value = 'auto_extracted_data' id="dhis_sheetname" type="text" class="validate">
+          <label for="dhis_sheetname">DHIS SheetName</label>
+        </div>
+      </div>
+     
+      
+      <hr>
+      <hr>
+      <hr>
+      <br/>
+
+
+<!-- org unit -->
+
+      <div class="row">
+        <div class="input-field col s6">
+          <select multiple id="ou">
+            <option value="" disabled selected>Choose org unit</option>
+            <option value="1">Abia</option>
+            <option value="2">Adamawa</option>
+            <option value="3">Akwa Ibom</option>
+        </select>
+        <label>Org unit</label>
+      </div>
+      
+<!-- other options-->
+
+        <div class="input-field col s6">
+        <select id="Optgroups">
+          <optgroup label="team 1">
+            <option value="1">Option 1</option>
+            <option value="2">Option 2</option>
+          </optgroup>
+          <optgroup label="team 2">
+            <option value="3">Option 3</option>
+            <option value="4">Option 4</option>
+          </optgroup>
+        </select>
+        <label>Option groups</label>
+      </div>
+      
+      
+      </div> <!-- End or row -->
+      
+
+      <div class="row">
+        <div class="col s12">
+          Enter email address:
+          <div class="input-field inline">
+            <input id="email_inline" value="martynscn@gmail.com" type="email" class="validate">
+            <label for="email_inline">Email</label>
+            <span class="helper-text" data-error="wrong" data-success="right">Helper text</span>
+          </div>
+        </div>
+      </div>
+    </form>
+  </div>
+      <div class="row">
+        <button id="btn" class="waves-effect waves-light btn-small green accent-4"><i class="material-icons left">directions_run</i>Run script</button>
+      </div> <!-- End or row -->
+      
+      <div class="row">
+        <div class="input-field col s6">
+          <select multiple id="ou_auto">
+            <option value="" disabled selected>Auto org unit</option>
+            <? for(var i = 0; i < state.length; i++) {  ?>
+            
+            <option value= <? state[i] ?> ><?= state[i] ?></option>
+            
+             <? } ?> 
+        </select>
+        <label>Org unit</label>
+      </div>
+     
+  <?  ?>     
+</div>
+  
+    <!-- Ask question to make selection sticky-->
+    
+     <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
+     <?!= include("page-js"); ?> 
+  </body>
+</html>

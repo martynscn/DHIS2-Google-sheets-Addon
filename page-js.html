@@ -1,0 +1,50 @@
+<script>
+      
+      document.addEventListener('DOMContentLoaded', function() {
+        var elems = document.querySelectorAll('select');
+        var instances = M.FormSelect.init(elems);
+      });
+      document.getElementById("ssId").addEventListener("click",initializeFields);
+      document.getElementById("btn").addEventListener("click",doStuff);
+      
+      
+      function initializeFields() {
+        document.getElementById("token").value = 'YE24HD7WK4';
+         document.getElementById("ssId").value = '1dY2n_yI41ZRRtGXTcoPLIFXCrbLMaBi5363LPvlDqY4';
+//        document.getElementById("nmdr_sheetname").value = 'NMDR';
+//        document.getElementById("nhmis_sheetname").value = 'NHMIS';
+        // document.getElementById("ou").value = 'Abia';
+        // M.FormSelect.init(document.querySelector("#ou"));
+        M.FormSelect.init(document.getElementById("ou"));
+        document.getElementById("ou").selectedIndex = 1;
+      }
+      function doStuff() {
+        var extractInfo = {};
+        extractInfo.token = document.getElementById("token").value;
+        extractInfo.ssId = document.getElementById("ssId").value;
+        extractInfo.dhis_username = document.getElementById("dhis_username").value;
+        extractInfo.dhis_password = document.getElementById("dhis_password").value;
+        extractInfo.dhis_url = document.getElementById("dhis_url").value;
+        extractInfo.dhis_sheetname = document.getElementById("dhis_sheetname").value;
+        extractInfo.ou = document.getElementById("ou").value;
+        extractInfo.Optgroups = document.getElementById("Optgroups").value;
+        extractInfo.email_inline = document.getElementById("email_inline").value;
+        
+        // google.script.run.updateData(extractInfo);
+        google.script.run.logWebAppExecutions(extractInfo);
+        
+        document.getElementById("token").value = 'Martyns';
+        // document.getElementById("ssId").value = 'sample id';
+        // document.getElementById("dhis_url").value = 'https://dhis2nigeria.org.ng/dhis';
+        document.getElementById("dhis_sheetname").value = 'DHIS';
+        
+        // document.getElementById("ou").selectedIndex = 0;
+        // M.FormSelect.init(document.getElementById("ou"));
+        // document.getElementById("ou_auto").value = "Abia";
+        var x = document.getElementById("ou_auto").selectedIndex;
+        var y = document.getElementById("ou_auto").label;
+        alert(x + ", " + y);
+ 
+      }
+
+      </script>
