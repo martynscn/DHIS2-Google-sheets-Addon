@@ -1,1 +1,3 @@
 # DHIS2-Google-sheets-Addon
+
+In this project, a Google sheet addon is developed to seamlessly link the Open source District Health Information System (DHIS2) to Google Sheets through the DHIS2 API. With this addon, users with no programming knowledge can easily import data from DHIS2 into Google sheets by navigating through the interface and simply clicking buttons. This project is still in progress...
